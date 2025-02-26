@@ -1,0 +1,37 @@
+<div>
+
+  <h1>Catalog: </h1>
+
+  <div class = 'category-buttons'>
+    <label for="category">Take Category:</label>
+    <select id="category" (change) = "selectCategory($event)">
+      <option *ngFor = "let category of categories" [value]="category">
+        {{category}}
+      </option>
+    </select>
+  </div>
+
+  <div class="products-container">
+    <div *ngFor="let product of getfilteredProducts()" class="product-card">
+      <img class = 'product-image' [src]="product.image" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <p>⭐ {{ product.rating }}</p>
+      
+      <p>❤️ {{product.likes}}</p>
+
+      <a [href]="product.link" target="_blank">More Infonation</a>
+
+      <button (click) = "likeProduct(product.id)">👍 Like</button>
+      <br>
+      <br>
+      <br>
+      <button (click) = "removeProduct(product.id)">🗑 Delete</button>
+    
+      <div class = 'share-buttons'>
+        <button (click)="shareProduct(product.link, 'whatsapp')">📲 Share in WhatsApp</button>
+        <button (click)="shareProduct(product.link, 'telegram')">📩 Share in Telegram</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+a{
+    font-size: 30px;
+    text-decoration: none;
+}
+
+li{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width: 70px;
+}
+
+input{
+    width: fit-content;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

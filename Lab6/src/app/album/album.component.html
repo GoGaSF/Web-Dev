@@ -1,0 +1,17 @@
+<h2>Album List</h2>
+
+<div>
+  <input [(ngModel)]="newAlbumTitle" placeholder="Enter album title" />
+  <button (click)="addAlbum()">Add Album</button>
+</div>
+
+<ul>
+  <li *ngFor="let album of albums">
+    <a (click)="goToAlbumDetails(album.id)" style="cursor: pointer; text-decoration: underline;">
+      {{ album.id }} - {{ album.title }}
+    </a>
+
+    <input [(ngModel)]="album.title" (change)="updateAlbum(album)" />
+    <button (click)="deleteAlbum(album.id)">Delete</button>
+  </li>
+</ul>
